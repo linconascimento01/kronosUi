@@ -1,5 +1,29 @@
-Nome: <input type="text" [(ngModel)]="usuario.nome">
-Email: <input type="text" [(ngModel)]="usuario.email" >
-senha: <input type="text" [(ngModel)]="usuario.senha">
-perfil: <input type="text" [(ngModel)]="usuario.perfil">
-<button (click)="gravar(usuario)">Gravar</button>
+
+
+    <div>
+        <mat-form-field  appearance="outline">
+        <mat-label floatLabel="always" >Nome</mat-label>
+        <input matInput [(ngModel)]="usuario.nome">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field  appearance="outline">
+        <mat-label floatLabel="always" >e-mail</mat-label>
+        <input matInput [(ngModel)]="usuario.email">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field  appearance="outline">
+            <mat-label floatLabel="always" >senha</mat-label>
+            <input type="password" matInput [(ngModel)]="usuario.senha">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field  appearance="outline">
+        <mat-label floatLabel="always" >perfil</mat-label>
+        <input matInput [(ngModel)]="usuario.perfil">
+        </mat-form-field>
+    </div>
+    <div class="button-row">
+      <button  (click)="gravar(usuario)" mat-raised-button color="primary">Gravar</button>
+    </div>

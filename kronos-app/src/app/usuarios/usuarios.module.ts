@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -16,7 +18,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule
   ]
 })
 export class UsuariosModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UsuarioModel } from 'src/app/usuarios/models/usuario';
+import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 import { ConsultoriaModel } from '../models/consultoria';
 import { ConsultoriaService } from '../service/consultoria.service';
 
@@ -9,25 +12,27 @@ import { ConsultoriaService } from '../service/consultoria.service';
 })
 export class CadastrarConsultoriaComponent implements OnInit {
 
-  constructor(private consultoriaService: ConsultoriaService) { }
+  constructor(
+    private consultoriaService: ConsultoriaService,
+    private usuarioService: UsuarioService,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   consultoria: ConsultoriaModel={
     consultoriaId:0,
     razaoSocial:'',
     nomeComercial:'',
     cnpj:'',
-    usuarios: [
-      {
-        "usuarioId": 35,
-        "nome": "chorão",
-        "email": "chorao@1235",
-        "senha": "12354",
-        "perfil": 1
-    }
-    ]
+    usuarios: []
   }
 
   ngOnInit(): void {
+    const id = this.activatedRoute.snapshot.params['userId']
+    this.usuarioService.findById(id).subscribe((usuario:UsuarioModel)=>{
+      this.consultoria.usuarios.push(usuario)
+    }),()=>{
+      alert('ususario não cadastrado')
+    }
   }
 
   gravar(consultoria:ConsultoriaModel){

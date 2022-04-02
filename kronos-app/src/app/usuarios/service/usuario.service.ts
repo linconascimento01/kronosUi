@@ -16,5 +16,8 @@ export class UsuarioService {
     return this.http.post<UsuarioModel>(`${environment.kronosAPI}/usuario`, usuario);
   }
 
+  findById(id:number): Observable<UsuarioModel> {
+    return this.http.get<UsuarioModel>(`${environment.kronosAPI}/usuario/${id}`)
+  }
   
 }

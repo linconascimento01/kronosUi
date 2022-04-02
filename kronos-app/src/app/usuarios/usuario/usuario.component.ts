@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario';
 import { UsuarioService } from '../service/usuario.service';
 
@@ -9,7 +10,8 @@ import { UsuarioService } from '../service/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(private usuarioService:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService,
+              private route: Router) { }
   usuario: UsuarioModel={
     usuarioId:0,
     nome:'',
@@ -23,7 +25,7 @@ export class UsuarioComponent implements OnInit {
 
   gravar(usuario:UsuarioModel){
     this.usuarioService.save(usuario).subscribe((u:UsuarioModel)=>{
-      alert(`usuario id: ${u.usuarioId}, nome: ${u.nome}`)
+      this.route.navigateByUrl(`cadastrar/consultoria/${u.usuarioId}`)
     }), ()=>{
       alert('Error')
     }

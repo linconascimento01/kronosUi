@@ -1,0 +1,18 @@
+<form class="example-form">
+    <mat-form-field  appearance="fill">
+      <mat-label>razão social</mat-label>
+      <input matInput [(ngModel)]="consultoria.razaoSocial">
+    </mat-form-field>
+  
+    <mat-form-field  appearance="fill">
+      <mat-label>nome comercial</mat-label>
+      <input matInput [(ngModel)]="consultoria.nomeComercial">
+    </mat-form-field>
+
+    <mat-form-field  appearance="fill">
+        <mat-label>cnpj</mat-label>
+        <input matInput [(ngModel)]="consultoria.cnpj">
+      </mat-form-field>
+
+      <button  (click)="gravar(consultoria)" mat-raised-button color="primary">Gravar</button>
+  </form>

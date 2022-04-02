@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { ConsultoriasModule } from './consultorias/consultorias.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     BrowserAnimationsModule,
     MatSliderModule,
     UsuariosModule,
+    ConsultoriasModule
   ],
   providers: [],
   bootstrap: [AppComponent]

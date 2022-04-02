@@ -1,29 +1,29 @@
-
-
+<form class="example-form">
     <div>
         <mat-form-field  appearance="outline">
         <mat-label floatLabel="always" >Nome</mat-label>
-        <input matInput [(ngModel)]="usuario.nome">
+        <input matInput [(ngModel)]="usuario.nome"  [ngModelOptions]="{standalone: true}">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field  appearance="outline">
         <mat-label floatLabel="always" >e-mail</mat-label>
-        <input matInput [(ngModel)]="usuario.email">
+        <input matInput [(ngModel)]="usuario.email"  [ngModelOptions]="{standalone: true}">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field  appearance="outline">
             <mat-label floatLabel="always" >senha</mat-label>
-            <input type="password" matInput [(ngModel)]="usuario.senha">
+            <input type="password" matInput [(ngModel)]="usuario.senha" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field  appearance="outline">
         <mat-label floatLabel="always" >perfil</mat-label>
-        <input matInput [(ngModel)]="usuario.perfil">
+        <input matInput [(ngModel)]="usuario.perfil" name="first">
         </mat-form-field>
     </div>
     <div class="button-row">
-      <button  (click)="gravar(usuario)" mat-raised-button color="primary">Gravar</button>
+      <button (click)="gravar(usuario)" mat-raised-button color="primary">Gravar</button>
     </div>
+  </form>

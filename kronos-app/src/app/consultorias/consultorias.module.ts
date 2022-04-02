@@ -6,22 +6,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
+import { MenuConsultoriaComponent } from './menu-consultoria/menu-consultoria.component';
+import { MatToolbarModule } from '@angular/material/toolbar'
+
 
 
 @NgModule({
   declarations: [
     ConsultoriaComponent,
-    CadastrarConsultoriaComponent
+    CadastrarConsultoriaComponent,
+    MenuConsultoriaComponent
   ],
   exports:[
-    CadastrarConsultoriaComponent
+    CadastrarConsultoriaComponent,
+    MenuConsultoriaComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
   ]
 })
 export class ConsultoriasModule { }

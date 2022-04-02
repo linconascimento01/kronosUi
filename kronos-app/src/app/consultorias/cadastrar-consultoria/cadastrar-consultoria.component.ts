@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioModel } from 'src/app/usuarios/models/usuario';
 import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 import { ConsultoriaModel } from '../models/consultoria';
@@ -15,7 +15,8 @@ export class CadastrarConsultoriaComponent implements OnInit {
   constructor(
     private consultoriaService: ConsultoriaService,
     private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private route: Router
     ) { }
 
   consultoria: ConsultoriaModel={
@@ -36,9 +37,8 @@ export class CadastrarConsultoriaComponent implements OnInit {
   }
 
   gravar(consultoria:ConsultoriaModel){
-    this.consultoriaService.save(consultoria).subscribe((ct:ConsultoriaModel)=>{
-      alert(`consultotria ${ct.nomeComercial} cadastrada com sucesso
-      consultoria id ${ct.consultoriaId}`)
+      this.consultoriaService.save(consultoria).subscribe((ct:ConsultoriaModel)=>{
+      this.route.navigateByUrl('menu-consultoria')
     }), ()=>{
       alert(`Error`)
     }

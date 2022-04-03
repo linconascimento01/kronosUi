@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ConsultoriasModule } from './consultorias/consultorias.module';
 import { ClienteEmpresasModule } from './cliente-empresas/cliente-empresas.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ClienteEmpresasModule } from './cliente-empresas/cliente-empresas.modul
     MatSliderModule,
     UsuariosModule,
     ConsultoriasModule,
-    ClienteEmpresasModule
+    ClienteEmpresasModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

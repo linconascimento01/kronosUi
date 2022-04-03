@@ -4,6 +4,7 @@ import { CadastroClienteEmpresaComponent } from './cliente-empresas/cadastro-cli
 import { MenuClienteEmpresaComponent } from './cliente-empresas/menu-cliente-empresa/menu-cliente-empresa.component';
 import { CadastrarConsultoriaComponent } from './consultorias/cadastrar-consultoria/cadastrar-consultoria.component';
 import { MenuConsultoriaComponent } from './consultorias/menu-consultoria/menu-consultoria.component';
+import { SigninComponent } from './home/signin/signin.component';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:'cadastrar/consultoria/:userId', component: CadastrarConsultoriaComponent},
   {path:'cadastrar/cliente-empresa/:userId', component: CadastroClienteEmpresaComponent},
   {path:'menu-consultoria', component: MenuConsultoriaComponent},
-  {path:'menu-cliente-empresa', component: MenuClienteEmpresaComponent}
+  {path:'menu-cliente-empresa', component: MenuClienteEmpresaComponent},
+  {path:'', component: SigninComponent}
 ];
 
 @NgModule({

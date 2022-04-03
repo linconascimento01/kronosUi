@@ -12,6 +12,6 @@ export class ClienteEmpresaService {
   constructor(private http:HttpClient) { }
 
   save(clienteEmpresa: ClienteEmpresaModel): Observable<ClienteEmpresaModel>{
-    return this.http.post<ClienteEmpresaModel>(`${environment}cliente-empresa/cadastrar`,  clienteEmpresa)
+    return this.http.post<ClienteEmpresaModel>(`${environment.kronosAPI}/cliente-empresa/cadastrar`,  clienteEmpresa)
   }
 }

@@ -6,6 +6,6 @@ export interface ClienteEmpresaModel {
     razaoSocial:string,
     nomeComercial:string,
     cnpj:string,
-    usuarios:any,
+    usuario:any,
     consultoria:any
 }

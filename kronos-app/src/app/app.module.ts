@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ConsultoriasModule } from './consultorias/consultorias.module';
+import { ClienteEmpresasModule } from './cliente-empresas/cliente-empresas.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConsultoriasModule } from './consultorias/consultorias.module';
     BrowserAnimationsModule,
     MatSliderModule,
     UsuariosModule,
-    ConsultoriasModule
+    ConsultoriasModule,
+    ClienteEmpresasModule
   ],
   providers: [],
   bootstrap: [AppComponent]

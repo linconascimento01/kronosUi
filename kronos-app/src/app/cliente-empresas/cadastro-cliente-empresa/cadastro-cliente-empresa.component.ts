@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConsultoriaService } from 'src/app/consultorias/service/consultoria.service';
 
 import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 import { ClienteEmpresaModel } from '../models/cliente-empresa-model';
@@ -26,23 +25,28 @@ export class CadastroClienteEmpresaComponent implements OnInit {
     razaoSocial:'',
     nomeComercial:'',
     cnpj:'',
-    usuarios: {},
+    usuario: {},
     consultoria: {}
   }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['userId']
     this.usuarioService.findById(id).subscribe((user:UsuarioModel)=>{
-      this.clienteEmpresa.usuarios = user;
+      console.log('user found '+ user.nome);
+      console.log('user ID '+ user.usuarioId);
+      this.clienteEmpresa.usuario = user;
     }), ()=>{
+      console.log('usuario não cadastrado')
       alert('usuario não cadastrado');
     }
   }
 
   gravar(clienteEmpresa:ClienteEmpresaModel){
-    this.clienteEmpresaService.save(clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
+      this.clienteEmpresaService.save(clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
       this.route.navigateByUrl('menu-cliente-empresa')
-    })
+    }), ()=>{
+      alert(`Error`)
+    }
   }
 
 }

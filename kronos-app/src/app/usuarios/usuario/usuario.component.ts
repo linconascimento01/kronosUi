@@ -25,7 +25,12 @@ export class UsuarioComponent implements OnInit {
 
   gravar(usuario:UsuarioModel){
     this.usuarioService.save(usuario).subscribe((u:UsuarioModel)=>{
-      this.route.navigateByUrl(`cadastrar/consultoria/${u.usuarioId}`)
+      if(u.perfil == 1){
+        this.route.navigateByUrl(`cadastrar/consultoria/${u.usuarioId}`)
+      }if(u.perfil == 2){
+        this.route.navigateByUrl(`cadastrar/cliente-empresa/${u.usuarioId}`)
+      }
+      
     }), ()=>{
       alert('Error')
     }

@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.save(usuario).subscribe((u:UsuarioModel)=>{
       if(u.perfil == 1){
         this.route.navigateByUrl(`cadastrar/consultoria/${u.usuarioId}`)
-      }if(u.perfil == 2){
+      }if(u.perfil == 3){
         this.route.navigateByUrl(`cadastrar/cliente-empresa/${u.usuarioId}`)
       }
       

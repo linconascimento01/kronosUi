@@ -1,18 +1,33 @@
-<form [formGroup]="loginForm" class="example-form" (submit)="logar()" >
-    <div >
-        <mat-form-field  appearance="outline">
-        <mat-label floatLabel="always" >e-mail</mat-label>
-        <input formControlName="email" matInput name="first">
-        </mat-form-field>
+<h4 class="text-center">Login</h4>
+
+<form [formGroup]="loginForm" class="form mt-4" (submit)="logar()" >
+
+    <div class="form-group">
+        <input
+            formControlName="email"
+            class="form-control" 
+            placeholder="user name" 
+            autofocus>  
     </div>
-    <div>
-        <mat-form-field  appearance="outline">
-        <mat-label floatLabel="always" >senha</mat-label>
-        <input formControlName="senha"  type="password" matInput name="first">
-        </mat-form-field>
+
+    <div class="form-group">
+        <input
+            formControlName="senha"
+            type="password" 
+            class="form-control" 
+            placeholder="password">              
     </div>
-    <div class="button-row">
-      <button [disabled]="loginForm.invalid" mat-raised-button color="primary">Sing-in</button>
-    </div>
-  </form>
-  <a href="http://localhost:4200/usuario"> cadastre-se </a>
+
+    <button
+        [disabled]="loginForm.invalid" 
+        type="submit" 
+        class="btn btn-primary btn-block">
+        login
+    </button>
+
+</form>
+
+
+
+
+

@@ -48,8 +48,9 @@ export class CadastroUsuarioComponent implements OnInit {
           break;
         }
       }
-    })
-    alert(this.usuario.perfil);
+    }), ()=>{
+      alert('error')
+    }
   }
 
   setValues(){

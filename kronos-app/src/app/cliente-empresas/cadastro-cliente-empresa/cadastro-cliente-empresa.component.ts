@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/usuarios/service/usuario.service';
 import { ClienteEmpresaModel } from '../models/cliente-empresa-model';
 import { UsuarioModel } from 'src/app/usuarios/models/usuario';
 import { ClienteEmpresaService } from '../service/cliente-empresa.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-cliente-empresa',
@@ -12,13 +13,6 @@ import { ClienteEmpresaService } from '../service/cliente-empresa.service';
   styleUrls: ['./cadastro-cliente-empresa.component.css']
 })
 export class CadastroClienteEmpresaComponent implements OnInit {
-
-  constructor(
-    private clienteEmpresaService: ClienteEmpresaService,
-    private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute,
-    private route: Router
-  ) { }
 
   clienteEmpresa: ClienteEmpresaModel={
     consultoriaId:0,
@@ -28,6 +22,21 @@ export class CadastroClienteEmpresaComponent implements OnInit {
     usuario: {},
     consultoria: {}
   }
+
+  clienteForm:FormGroup;
+  constructor(
+    private clienteEmpresaService: ClienteEmpresaService,
+    private usuarioService: UsuarioService,
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private route: Router
+  ) {
+      this.clienteForm = this.formBuilder.group({
+        razaoSocial:['',Validators.required],
+        nomeComercial:['',Validators.required],
+        cnpj:['',Validators.required],
+    })
+   }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['userId']
@@ -41,12 +50,19 @@ export class CadastroClienteEmpresaComponent implements OnInit {
     }
   }
 
-  gravar(clienteEmpresa:ClienteEmpresaModel){
-      this.clienteEmpresaService.save(clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
+  gravar(){
+      this.clienteEmpresaService.save(this.clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
       this.route.navigateByUrl('menu-cliente-empresa')
     }), ()=>{
       alert(`Error`)
     }
   }
+
+  setValues(){
+    this.clienteEmpresa.razaoSocial = this.clienteForm.get('razaoSocial')?.value;
+    this.clienteEmpresa.nomeComercial = this.clienteForm.get('nomeComercial')?.value;
+    this.clienteEmpresa.cnpj = this.clienteForm.get('cnpj')?.value;
+  }
+
 
 }

@@ -6,29 +6,38 @@
  <div class="row">
     <div class="col-6 col-md-4"></div>
     <div class="col-6 col-md-4">
-        <form class="example-form">
-            <div>
-                <mat-form-field  appearance="outline">
-                <mat-label floatLabel="always" >razão social</mat-label>
-                <input matInput [(ngModel)]="clienteEmpresa.razaoSocial" name="first">
-                </mat-form-field>
+        <form [formGroup]="clienteForm" class="example-form" (submit)="gravar()">
+            <div class="form-group">
+                <label>razão social</label>
+                <input 
+                    formControlName="razaoSocial"
+                    type="text" 
+                    class="form-control"  
+                    placeholder="razão social" 
+                >
             </div>
-            <div>
-                <mat-form-field  appearance="outline">
-                <mat-label floatLabel="always" >nome comercial</mat-label>
-                <input matInput [(ngModel)]="clienteEmpresa.nomeComercial" name="first">
-                </mat-form-field>
+            <div class="form-group">
+                <label >nome comercial</label>
+                <input
+                    formControlName="nomeComercial"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="nome comercial" 
+                >
             </div>
-            <div>
-                <mat-form-field  appearance="outline">
-                    <mat-label floatLabel="always" >cnpj</mat-label>
-                    <input matInput [(ngModel)]="clienteEmpresa.cnpj" name="first">
-                </mat-form-field>
+            <div class="form-group">
+                    <label >cnpj</label>
+                    <input
+                        formControlName="cnpj"
+                        type="text" 
+                        class="form-control"  
+                        placeholder="cnpj" 
+                    >
             </div>
             <div class="button-row">
-              <button  (click)="gravar(clienteEmpresa)" mat-raised-button color="primary">Gravar</button>
+              <button type="submit" class="btn btn-primary  btn-block">Gravar</button>
             </div>
-        </form>         
+        </form>  
     </div>
     <div class="col-6 col-md-4"></div>
 </div>

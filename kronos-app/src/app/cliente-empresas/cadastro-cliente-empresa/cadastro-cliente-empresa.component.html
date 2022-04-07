@@ -1,23 +1,34 @@
-<form class="example-form">
-    <div>
-        <mat-form-field  appearance="outline">
-        <mat-label floatLabel="always" >razão social</mat-label>
-        <input matInput [(ngModel)]="clienteEmpresa.razaoSocial" name="first">
-        </mat-form-field>
+<nav class="navbar navbar-dark bg-primary">
+    <div class="col-sm">
+        <span class="navbar-brand mb-0 h1">Kronos-Hours</span>
     </div>
-    <div>
-        <mat-form-field  appearance="outline">
-        <mat-label floatLabel="always" >nome comercial</mat-label>
-        <input matInput [(ngModel)]="clienteEmpresa.nomeComercial" name="first">
-        </mat-form-field>
+ </nav>
+ <div class="row">
+    <div class="col-6 col-md-4"></div>
+    <div class="col-6 col-md-4">
+        <form class="example-form">
+            <div>
+                <mat-form-field  appearance="outline">
+                <mat-label floatLabel="always" >razão social</mat-label>
+                <input matInput [(ngModel)]="clienteEmpresa.razaoSocial" name="first">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field  appearance="outline">
+                <mat-label floatLabel="always" >nome comercial</mat-label>
+                <input matInput [(ngModel)]="clienteEmpresa.nomeComercial" name="first">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field  appearance="outline">
+                    <mat-label floatLabel="always" >cnpj</mat-label>
+                    <input matInput [(ngModel)]="clienteEmpresa.cnpj" name="first">
+                </mat-form-field>
+            </div>
+            <div class="button-row">
+              <button  (click)="gravar(clienteEmpresa)" mat-raised-button color="primary">Gravar</button>
+            </div>
+        </form>         
     </div>
-    <div>
-        <mat-form-field  appearance="outline">
-            <mat-label floatLabel="always" >cnpj</mat-label>
-            <input matInput [(ngModel)]="clienteEmpresa.cnpj" name="first">
-        </mat-form-field>
-    </div>
-    <div class="button-row">
-      <button  (click)="gravar(clienteEmpresa)" mat-raised-button color="primary">Gravar</button>
-    </div>
-  </form>
+    <div class="col-6 col-md-4"></div>
+</div>

@@ -1,31 +1,49 @@
-<h4 class="text-center">Login</h4>
-
-<form [formGroup]="loginForm" class="form mt-4" (submit)="logar()" >
-
-    <div class="form-group">
-        <input
-            formControlName="email"
-            class="form-control" 
-            placeholder="user name" 
-            autofocus>  
+<nav class="navbar navbar-light bg-light">
+    <div class="col-sm">
+        <span class="navbar-brand mb-0 h1">Kronos-Hours</span>
     </div>
+</nav>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+        <h2 class="text-center">Login</h2>
+            <form [formGroup]="loginForm" class="form mt-4" (submit)="logar()" >
 
-    <div class="form-group">
-        <input
-            formControlName="senha"
-            type="password" 
-            class="form-control" 
-            placeholder="password">              
+                <div class="form-group">
+                    <input
+                        formControlName="email"
+                        class="form-control" 
+                        placeholder="e-mail" 
+                        autofocus>  
+                </div>
+
+                <div class="form-group">
+                    <input
+                        formControlName="senha"
+                        type="password" 
+                        class="form-control" 
+                        placeholder="password">              
+                </div>
+
+                <button
+                    [disabled]="loginForm.invalid" 
+                    type="submit" 
+                    class="btn btn-primary btn-block">
+                    login
+                </button>
+
+            </form>
+
+            <a class="text-center" href="cadastrar/usuario">registre-se</a>
+      </div>
+      <div class="col-sm">
+      </div>
     </div>
+</div>
 
-    <button
-        [disabled]="loginForm.invalid" 
-        type="submit" 
-        class="btn btn-primary btn-block">
-        login
-    </button>
 
-</form>
 
 
 

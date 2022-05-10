@@ -51,6 +51,7 @@ export class CadastroClienteEmpresaComponent implements OnInit {
   }
 
   gravar(){
+      this.setValues()
       this.clienteEmpresaService.save(this.clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
       this.route.navigateByUrl('menu-cliente-empresa')
     }), ()=>{

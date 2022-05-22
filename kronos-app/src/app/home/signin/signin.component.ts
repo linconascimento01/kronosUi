@@ -39,7 +39,7 @@ export class SigninComponent {
       if(user.perfil == 1){
         this.route.navigateByUrl(`menu-consultoria`)
       }if(user.perfil == 3){
-        this.route.navigateByUrl(`menu-cliente-empresa`)
+        this.route.navigateByUrl(`menu-cliente-empresa/${this.usuario.usuarioId}`)
       }
     }), ()=>{
       alert('E-mail ou senha invalido')

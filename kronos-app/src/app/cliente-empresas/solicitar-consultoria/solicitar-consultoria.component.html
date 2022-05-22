@@ -1,0 +1,18 @@
+<app-menu-cliente-empresa></app-menu-cliente-empresa>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <mat-nav-list>
+            <mat-list-item *ngFor="let c of consultoria">
+               <button mat-icon-button (click)="solicitar(c.consultoriaId)">
+                  <mat-icon>info</mat-icon>
+               </button>
+            </mat-list-item>
+          </mat-nav-list>
+      </div> 
+
+    </div>
+</div>
+
+

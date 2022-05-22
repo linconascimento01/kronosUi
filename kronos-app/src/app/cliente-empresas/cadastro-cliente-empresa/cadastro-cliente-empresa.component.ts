@@ -15,13 +15,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastroClienteEmpresaComponent implements OnInit {
 
   clienteEmpresa: ClienteEmpresaModel={
-    consultoriaId:0,
+    clienteEmpresaId:0,
     razaoSocial:'',
     nomeComercial:'',
     cnpj:'',
     usuario: {},
     consultoria: {}
   }
+
+  usuarioId : number = 0
 
   clienteForm:FormGroup;
   constructor(
@@ -40,6 +42,7 @@ export class CadastroClienteEmpresaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['userId']
+    this.usuarioId = id
     this.usuarioService.findById(id).subscribe((user:UsuarioModel)=>{
       console.log('user found '+ user.nome);
       console.log('user ID '+ user.usuarioId);
@@ -53,7 +56,7 @@ export class CadastroClienteEmpresaComponent implements OnInit {
   gravar(){
       this.setValues()
       this.clienteEmpresaService.save(this.clienteEmpresa).subscribe((cli:ClienteEmpresaModel)=>{
-      this.route.navigateByUrl('menu-cliente-empresa')
+      this.route.navigateByUrl(`menu-cliente-empresa/${this.usuarioId}`)
     }), ()=>{
       alert(`Error`)
     }

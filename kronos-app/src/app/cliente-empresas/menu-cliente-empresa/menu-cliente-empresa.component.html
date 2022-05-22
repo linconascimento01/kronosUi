@@ -7,7 +7,23 @@
         <div>
             <a mat-button > Chamados </a>
             <a mat-button > Usuarios </a>
-            <a mat-button > Solicitar consultoria </a>
+            <a mat-button href="cliente-empresa/solicitar-consultoria" > Solicitar consultoria </a>
           </div>
     </mat-toolbar-row>
 </mat-toolbar>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <mat-nav-list>
+            <mat-list-item *ngFor="let consultoria of consultorias">
+               <button mat-icon-button (click)="solicitar(consultoria.consultoriaId)">
+                  <mat-icon>info</mat-icon>
+               </button>
+            </mat-list-item>
+          </mat-nav-list>
+      </div> 
+
+    </div>
+</div>
